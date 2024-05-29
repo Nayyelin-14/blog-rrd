@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.main {
+  max-width: 60%;
+  margin: 0 auto;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 20px;
+}
+a.active {
+  background-color: cornflowerblue;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  border-radius: 10px;
+}
+.images {
+  width: 100%;
+  height: 230px;
+}
+.postitems {
+  margin: 0 auto;
+  width: 60%;
+}
+.pp {
+  padding: 20px;
+}
+.title {
+  padding: 0px;
+  margin-right: 0px;
+  height: 20px;
+}
+.clockicon {
+  width: 2rem;
+  height: 1.5rem;
+}
+.CP {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.arrowtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.arrow {
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.formsesction {
+  background-color: rgb(176, 186, 206);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 70%;
+  margin: 0 auto;
+}
+.formsesction div {
+  margin-top: 20px;
+}
+.formsesction div label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.formsesction div input,
+textarea {
+  width: 90%;
+  padding: 7px;
+  font-size: 20px;
+}
+.formsesction div textarea {
+  height: 100px;
+}
+.btn {
+  margin-top: 20px;
+  background-color: rgb(197, 198, 200);
+  padding: 10px;
+  font-size: 15px;
+  color: rgb(9, 8, 8);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 93%;
+}
+.btn:hover {
+  background-color: rgb(96, 97, 99);
+  color: rgb(243, 241, 241);
+}
+.card {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.btn1 {
+  width: 100px;
+  float: right;
+  margin-right: 10px;
+}
+.icon {
+  width: 200px;
+  height: 100px;
+}
+.errorpage {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}

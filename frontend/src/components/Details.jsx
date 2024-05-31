@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowLeftIcon, ClockIcon } from "@heroicons/react/24/solid";
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 const Details = (props) => {
   const deletesubmit = useSubmit();
   const deletepost = () => {
@@ -9,6 +9,8 @@ const Details = (props) => {
       deletesubmit(null, { method: "DELETE" });
     }
   };
+
+  const isToken = useRouteLoaderData("root");
   return (
     <>
       <section className="postitems">
@@ -26,15 +28,17 @@ const Details = (props) => {
         <img src={props.datadetailpost.image} alt="" className="images" />
         <h3>Post Description</h3>
         <p className="desc">{props.datadetailpost.description}</p>
-        <div>
-          <Link to={`post-edit`}>
-            <button className="btn btn1">Edit</button>
-          </Link>
 
-          <button className="btn btn1" onClick={deletepost}>
-            Delete
-          </button>
-        </div>
+        {isToken && (
+          <div>
+            <Link to={`post-edit`}>
+              <button className="btn btn1">Edit</button>
+            </Link>
+            <button className="btn btn1" onClick={deletepost}>
+              Delete
+            </button>
+          </div>
+        )}
       </section>
     </>
   );

@@ -11,11 +11,17 @@ import Editpage from "./pages/Editpage";
 import { action as updateaction } from "./components/PostForm";
 import { action as deleteAction } from "./pages/PostDetail";
 import Errorpage from "./pages/Errorpage";
+import Auth from "./pages/Auth";
+import { action as authaction } from "./pages/Auth";
+import { loader as logoutloader } from "./pages/Logout";
+import { checkTokenforRouteLoader, checkTokenLoader } from "./util/GetToken";
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main />,
+      id: "root",
+      loader: checkTokenLoader,
       errorElement: <Errorpage />,
       children: [
         {
@@ -27,6 +33,16 @@ const App = () => {
           path: "/create-post",
           element: <Createpost />,
           action: createaction,
+          loader: checkTokenforRouteLoader,
+        },
+        {
+          path: "/login-page",
+          element: <Auth />,
+          action: authaction,
+        },
+        {
+          path: "/logout",
+          loader: logoutloader,
         },
         {
           path: ":id",
@@ -42,6 +58,7 @@ const App = () => {
               path: "post-edit",
               element: <Editpage />,
               action: updateaction,
+              loader: checkTokenforRouteLoader,
             },
           ],
         },

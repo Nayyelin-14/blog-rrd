@@ -22,7 +22,7 @@ export const loader = async () => {
     throw json({ message: "Cannot get Datas", status: 500 });
   } else {
     const postData = await response.json();
-    console.log(postData.posts);
+    // console.log(postData.posts);
     return postData.posts;
   }
 };

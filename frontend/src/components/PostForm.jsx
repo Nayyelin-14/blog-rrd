@@ -2,9 +2,10 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { Form, Link, json, redirect, useActionData } from "react-router-dom";
 import uuid from "react-uuid";
+import { token } from "../util/GetToken";
 const PostForm = ({ header, click, olddata, methodfordeleteORedit }) => {
   const datas = useActionData();
-  console.log(methodfordeleteORedit);
+  // console.log(methodfordeleteORedit);
   return (
     <section className="formsesction">
       <div className="card">
@@ -68,6 +69,8 @@ const PostForm = ({ header, click, olddata, methodfordeleteORedit }) => {
 export default PostForm;
 
 export const action = async ({ request, params }) => {
+  const tokentaking = token();
+
   const post = await request.formData();
   const methodcomingfromform = request.method;
 
@@ -89,6 +92,7 @@ export const action = async ({ request, params }) => {
     method: methodcomingfromform,
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + tokentaking,
     },
     body: JSON.stringify(postData),
   });

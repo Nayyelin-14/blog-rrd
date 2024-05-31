@@ -3,6 +3,7 @@ import React from "react";
 import { Form, Link, json, redirect, useActionData } from "react-router-dom";
 import uuid from "react-uuid";
 import { token } from "../util/GetToken";
+
 const PostForm = ({ header, click, olddata, methodfordeleteORedit }) => {
   const datas = useActionData();
   // console.log(methodfordeleteORedit);
@@ -83,10 +84,10 @@ export const action = async ({ request, params }) => {
   };
   // console.log(postData);
 
-  let url = `http://localhost:8000/posts`;
+  let url = `${process.env.domain}/posts`;
   if (request.method === "PATCH") {
     const id = params.id;
-    url = `http://localhost:8000/posts/${id}`;
+    url = `${process.env.REACT_APP_DOMAIN}/posts/${id}`;
   }
   const response = await fetch(url, {
     method: methodcomingfromform,

@@ -3,6 +3,7 @@ import Authform from "../components/Authform";
 import { json } from "react-router-dom";
 import { redirect } from "react-router-dom";
 import { token } from "../util/GetToken";
+
 const Auth = () => {
   return (
     <>
@@ -27,14 +28,17 @@ export const action = async ({ request, params }) => {
     password: authdatafromroute.get("password"),
   };
 
-  const response = await fetch(`http://localhost:8000/${modefromURL}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      //       Authorization: "Bearer " + tokentaking,
-    },
-    body: JSON.stringify(authdata),
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_DOMAIN}/${modefromURL}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        //       Authorization: "Bearer " + tokentaking,
+      },
+      body: JSON.stringify(authdata),
+    }
+  );
 
   if (response.status === 422 || response.status === 401) {
     return response;

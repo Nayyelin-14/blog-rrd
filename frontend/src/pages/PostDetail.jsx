@@ -14,7 +14,9 @@ const PostDetail = () => {
 
 export default PostDetail;
 export const loader = async ({ request, params }) => {
-  const response = await fetch(`http://localhost:8000/posts/${params.id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_DOMAIN}/posts/${params.id}`
+  );
   if (!response.ok) {
     throw json({ message: "Cannot get Datas", status: 500 });
   } else {
@@ -27,12 +29,15 @@ export const loader = async ({ request, params }) => {
 export const action = async ({ request, params }) => {
   const tokentaking = token();
   //post-details/:id so pee yay loh t khr htl pr lr p id ka
-  const response = await fetch(`http://localhost:8000/posts/${params.id}`, {
-    method: "DELETE",
-    headers: {
-      Authorization: "Bearer " + tokentaking,
-    },
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_DOMAIN}/posts/${params.id}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + tokentaking,
+      },
+    }
+  );
   if (!response.ok) {
     throw json({ message: "Cannot get Datas", status: 500 });
   } else {

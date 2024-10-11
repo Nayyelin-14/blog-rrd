@@ -4,7 +4,7 @@ import PostItems from "../components/PostItems";
 
 const Posts = () => {
   const datas = useLoaderData();
-
+  // console.log(datas);
   return (
     <section className="pp">
       {datas.map((data) => {

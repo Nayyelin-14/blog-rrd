@@ -27,6 +27,7 @@ export const token = () => {
 export const checkTokenLoader = () => {
   return token();
 };
+
 export const checkTokenforRouteLoader = () => {
   const getToken = token();
 

@@ -7,6 +7,7 @@ import { token } from "../util/GetToken";
 const PostForm = ({ header, click, olddata, methodfordeleteORedit }) => {
   const datas = useActionData();
   // console.log(methodfordeleteORedit);
+  // console.log(datas);
   return (
     <section className="formsesction">
       <div className="card">
@@ -84,7 +85,7 @@ export const action = async ({ request, params }) => {
   };
   // console.log(postData);
 
-  let url = `${process.env.domain}/posts`;
+  let url = `${process.env.REACT_APP_DOMAIN}/posts`;
   if (request.method === "PATCH") {
     const id = params.id;
     url = `${process.env.REACT_APP_DOMAIN}/posts/${id}`;
